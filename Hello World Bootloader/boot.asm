@@ -1,9 +1,16 @@
 ORG 0
 BITS 16
+_start:
+    jmp short start ;short jmps to the start label 
+    nop ;no operation
 
-jmp 0x7c0:start
+ times 33 db 0 ; this is our BIOS parameter    
+
 
 start:
+    jmp 0x7c0:step2
+
+step2:
     cli ; clears all the interupts
     mov ax,0x7c0
     mov ds,ax
