@@ -5,8 +5,8 @@ CODE_SEG equ gdt_code - gdt_start
 DATA_SEG equ gdt_data - gdt_start
 
 _start:
-    jmp short start
     nop
+    jmp $
 
  times 33 db 0
  
@@ -75,6 +75,11 @@ load32:
     mov ss, ax
     mov ebp, 0x00200000
     mov esp, ebp
+
+    ;Enable the A20 Line
+    in al,0x92
+    or al,2
+    out 0x92,al
     jmp $
 
 
