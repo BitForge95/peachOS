@@ -4,3 +4,5 @@ all:
 
 clean:
 	rm -rf ./bin/boot.bin 	
+
+# 	TODO : Cross platform GCC Complier
